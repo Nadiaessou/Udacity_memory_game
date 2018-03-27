@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-let listOfCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]
+let listOfCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -94,6 +94,18 @@ let clickCard = function() {
 
 $(".card").click(clickCard);
 
+/////////////////////////////// RANDOM CARDS ///////////////////////////////
+
+
+function randomCards() {
+    listOfCards = shuffle(listOfCards);
+    var index = 0;
+    $.each($(".card i").not(".fa-anchor"), function(){
+      $(this).attr("class", listOfCards[index]);
+      index++;
+    });
+};
+
 
 /////////////////////////////// CHECK IF CARD IS OPEN AND MATCH ///////////////////////////////
 
@@ -167,4 +179,5 @@ let resetGame = function() {
     document.location.reload()
 };
 
+$(randomCards);
 $(".restart").click(resetGame);
