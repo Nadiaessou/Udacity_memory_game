@@ -121,6 +121,7 @@ let setMatch = function() {
     open = [];
     matchedCards += 2;
     if ($('.deck').find('.match').length === 16) {
+        // alert from https://sweetalert2.github.io/
         swal({
             title: 'Congratulations !',
             text: "You won this game",
