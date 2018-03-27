@@ -49,6 +49,27 @@ function updateMove() {
 };
 
 
+/////////////////////////////// CHRONO ///////////////////////////////
+
+
+let seconde=0;
+let minute=0;
+let heure=0;
+
+    function chrono(){
+            if(seconde<59){
+                seconde++;
+            }else{
+                seconde=0;
+                minute++;
+            }
+        $('#chrono').text('Time : ' +minute+ ':' +seconde);
+    }
+
+let time = setInterval(chrono, 1000);
+
+
+
 /////////////////////////////// LOGIC CARD ///////////////////////////////
 
 
@@ -121,10 +142,11 @@ let setMatch = function() {
     open = [];
     matchedCards += 2;
     if ($('.deck').find('.match').length === 16) {
+        clearTimeout(time);
         // alert from https://sweetalert2.github.io/
         swal({
             title: 'Congratulations !',
-            text: "You won this game",
+            text: "You won this game in " +minute+ ':' +seconde+ " time and with " +star+ "/3 stars",
             type: 'success',
             showCancelButton: true,
             confirmButtonColor: '#02b3e4',
