@@ -142,9 +142,9 @@ let setMatch = function() {
 /////////////////////////////// RESET GAME ///////////////////////////////
 let resetGame = function() {
     document.location.reload()
-}
+};
 
-;
+$(randomCards);
 $(".bouton1").click(resetGame);
 $(".restart").click(resetGame);
 $(".bouton3").click(function() {
