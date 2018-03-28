@@ -20,4 +20,3 @@ HTML
 CSS
 JavaScript
 JQuery
-Sweetalert2
