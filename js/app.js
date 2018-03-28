@@ -6,7 +6,8 @@ let listOfCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-bolt", "fa fa-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length,
+        temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -19,17 +20,9 @@ function shuffle(array) {
     return array;
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
-
-let open = [];
-let matchedCards = 0;
-let move = 0;
-let star = 3;
-
-
 /////////////////////////////// MOVES AND STARS ///////////////////////////////
 
+let star = 3;
 let level1 = 12;
 let level2 = 20;
 let level3 = 30;
@@ -52,19 +45,20 @@ function updateMove() {
 /////////////////////////////// CHRONO ///////////////////////////////
 
 
-let seconde=0;
-let minute=0;
-let heure=0;
+let seconde = 0;
+let minute = 0;
+let heure = 0;
 
-    function chrono(){
-            if(seconde<59){
-                seconde++;
-            }else{
-                seconde=0;
-                minute++;
-            }
-        $('#chrono').text('Time : ' +minute+ ':' +seconde);
+function chrono() {
+    if (seconde < 59) {
+        seconde++;
+    } else {
+        seconde = 0;
+        minute++;
     }
+
+    $('#chrono').text('Time : ' + minute + ':' + seconde);
+};
 
 let time = setInterval(chrono, 1000);
 
@@ -72,6 +66,9 @@ let time = setInterval(chrono, 1000);
 
 /////////////////////////////// LOGIC CARD ///////////////////////////////
 
+let open = [];
+let matchedCards = 0;
+let move = 0;
 
 let clickCard = function() {
     if (selectedCard($(this))) {
@@ -100,9 +97,9 @@ $(".card").click(clickCard);
 function randomCards() {
     listOfCards = shuffle(listOfCards);
     var index = 0;
-    $.each($(".card i").not(".fa-anchor"), function(){
-      $(this).attr("class", listOfCards[index]);
-      index++;
+    $.each($(".card i").not(".fa-anchor"), function() {
+        $(this).attr("class", listOfCards[index]);
+        index++;
     });
 };
 
@@ -158,7 +155,7 @@ let setMatch = function() {
         // alert from https://sweetalert2.github.io/
         swal({
             title: 'Congratulations !',
-            text: "You won this game in " +minute+ ':' +seconde+ " time and with " +star+ "/3 stars",
+            text: "You won this game in " + minute + 'min ' + seconde + "sec with " + star + "/3 stars",
             type: 'success',
             showCancelButton: true,
             confirmButtonColor: '#02b3e4',
