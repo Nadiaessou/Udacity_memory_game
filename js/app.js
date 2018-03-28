@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-let listOfCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"] // Shuffle function from http://stackoverflow.com/a/2450976
+let listOfCards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"] // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length,
         temporaryValue,
@@ -18,9 +18,8 @@ function shuffle(array) {
 
 /////////////////////////////// MOVES AND STARS ///////////////////////////////
 let star = 3;
-let level1 = 12;
-let level2 = 20;
-let level3 = 30;
+let level1 = 16;
+let level2 = 22;
 
 function removeStar() {
     $(".fa-star").last().attr("class", "fa fa-star-o");
@@ -32,7 +31,7 @@ function removeStar() {
 
 function updateMove() {
     $(".moves").text(move);
-    if (move === level1 || move === level2 || move === level3) {
+    if (move === level1 || move === level2) {
         removeStar();
     }
 }
@@ -82,7 +81,7 @@ $(".card").click(clickCard);
 function randomCards() {
     listOfCards = shuffle(listOfCards);
     let index = 0;
-    $.each($(".card i").not(".fa-anchor"), function() {
+    $.each($(".card i"), function() {
         $(this).attr("class", listOfCards[index]);
         index++;
     });
@@ -134,7 +133,7 @@ let setMatch = function() {
     if ($('.deck').find('.match').length === 16) {
         clearTimeout(time);
         $('.popup').css('display', 'block');
-        $('#popupAlert').text("You won this game in " + minute + 'min ' + seconde + "sec with " + star + "/3 stars");
+        $('#popupAlert').text(minute + 'min ' + seconde + "sec with "+move+ " moves and " + star + "/3 stars");
     }
 }
 
