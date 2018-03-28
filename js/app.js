@@ -1,6 +1,3 @@
-
-// To create this game I found help in videos tutoriels on youtube and in the forum. I have also used some codes that I have learned at school
-
 /*
  * Create a list that holds all of your cards
  */
