@@ -20,3 +20,4 @@ HTML
 CSS
 JavaScript
 JQuery
+Gif from https://giphy.com/
