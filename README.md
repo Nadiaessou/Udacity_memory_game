@@ -1,5 +1,5 @@
 # Memory Game Project
-Udacity Front-End Web Developer Nanodegree Project: Memory Game
+Udacity Front-End Web Developer Nanodegree Project: Memory Game  
 DEMO : https://nadiaessou.github.io/Udacity_memory_game/
 
 ## How The Game Works
